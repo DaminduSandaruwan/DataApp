@@ -74,6 +74,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       body: Form( 
         key: _formKey,
         child: Container(
@@ -89,21 +90,33 @@ class _HomePageState extends State<HomePage> {
               ),
               SizedBox(height: 30,),
               TextFormField(
+                validator: (value){
+                  return value.isEmpty ? "Enter Valid Name" : null;
+                },
                 decoration: InputDecoration(
                   hintText: "Name",
                 ),
               ),
               TextFormField(
+                validator: (value){
+                  return value.isEmpty ? "Enter Email" : null;
+                },
                 decoration: InputDecoration(
                   hintText: "Email",
                 ),
               ),
               TextFormField(
+                validator: (value){
+                  return value.isEmpty ? "Enter Mobile Number" : null;
+                },
                 decoration: InputDecoration(
                   hintText: "Mobile Number",
                 ),
               ),
               TextFormField(
+                validator: (value){
+                  return value.isEmpty ? "Enter Feedback" : null;
+                },
                 decoration: InputDecoration(
                   hintText: "Feedback",
                 ),
