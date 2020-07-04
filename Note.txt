@@ -1,0 +1,26 @@
+
+This is the Code for GoogleSheet
+
+
+function doGet(request) {
+  var sheet = SpreadsheetApp.openById("1tPUqnaA5UP6H9PqYNFFJyci7cOpkq75_x2D5dcORn0A");
+  var result = {"status":"SUCCESS"};
+  
+  try{
+    var name = request.parameter.name;
+    var email = request.paramener.email;
+    var mobileno = request.parameter.mobileno;
+    var feedback = request.parameter.feedback;
+    
+    var rowData = sheet.appendRow([name,email,mobileno,feedback]);
+  }catch(exc){
+    result = {"status": "FAILED", "message" : exc};
+  }
+  
+  return ContentService.createTextOutput(JSON.stringify(result)).setMimeType(ContentService.MimeType.JSON);
+  
+}
+
+This is the Link that provide from GoogleSheets Finally : 
+
+https://script.google.com/macros/s/AKfycbz6E8H-BafGzcKt1xiVEPI0yvw-VRau8zp5eAjV0QtRrWoKu7_J/exec
